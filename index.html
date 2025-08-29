@@ -2,23 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Mini Crossword</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Mini Crossword</h1>
-  <div id="timer">00:00</div>
-  <div id="grid"></div>
-  <div id="clues">
-    <h2>Across</h2><ul id="across-list"></ul>
-    <h2>Down</h2><ul id="down-list"></ul>
-  </div>
-  <form id="winner-form" class="hide">
-    <input id="player-name" placeholder="Name" maxlength="20" />
-    <button type="submit">Save</button>
+  <header class="app-header">
+    <h1>Mini Crossword</h1>
+    <div class="hud">
+      <div id="timer">00:00</div>
+      <div class="controls">
+        <button id="btn-check" class="ghost" title="Check (C)">Check</button>
+        <button id="btn-clear" class="ghost" title="Clear (Esc)">Clear</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="grid-wrap">
+      <div id="grid" class="grid" role="grid" aria-label="Crossword grid"></div>
+      <div class="legend">
+        <div class="legend-row"><span class="swatch highlight"></span><span>Current word</span></div>
+        <div class="legend-row"><span class="swatch checkbad"></span><span>Wrong letter (checked)</span></div>
+      </div>
+    </section>
+
+    <section class="clues">
+      <div class="clue-col">
+        <h2>Across</h2>
+        <ol id="across-list" class="clue-list"></ol>
+      </div>
+      <div class="clue-col">
+        <h2>Down</h2>
+        <ol id="down-list" class="clue-list"></ol>
+      </div>
+    </section>
+  </main>
+
+  <form id="winner-form" class="winner hide" autocomplete="off">
+    <label>Save your time:
+      <input id="player-name" maxlength="20" placeholder="Your name" />
+    </label>
+    <button type="submit" class="primary">Save</button>
   </form>
-  <div id="lb-local"></div>
+  <div id="lb-local" class="lb-table"></div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
   <script src="puzzles.js"></script>
   <script src="app.js"></script>
 </body>

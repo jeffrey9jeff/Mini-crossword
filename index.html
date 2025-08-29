@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Crossword</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Mini Crossword</h1>
+  <div id="timer">00:00</div>
+  <div id="grid"></div>
+  <div id="clues">
+    <h2>Across</h2><ul id="across-list"></ul>
+    <h2>Down</h2><ul id="down-list"></ul>
+  </div>
+  <form id="winner-form" class="hide">
+    <input id="player-name" placeholder="Name" maxlength="20" />
+    <button type="submit">Save</button>
+  </form>
+  <div id="lb-local"></div>
+  <script src="puzzles.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
